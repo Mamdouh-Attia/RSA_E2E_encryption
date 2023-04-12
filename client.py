@@ -36,9 +36,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         data = s.recv(1024)
         if not data:
             break
-
+        data_str = data.decode('utf-8')
+        data_list = data_str.split(',')
+        data_ints = [int(x.strip("[]")) for x in data_list]
         # decrypt message with private key
-        message = RSA.RSA_decrypt(data.decode('utf-8'), d, n)
+        message = RSA.RSA_decrypt(data_ints, d, n)
         print(f"Server: {message}")
 
 # import socket

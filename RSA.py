@@ -8,11 +8,13 @@ def RSA_encrypt(msg, e, n):
     encrypted = []
     for number in msg:
         encrypted.append(pow(number, e, n))
+    encrypted = [int(x) for x in encrypted]
     return encrypted
 def RSA_decrypt(encrypted, d, n):
     #decrypt each number
     msg = []
     for number in encrypted:
+        print(type(number))
         msg.append(pow(number, d, n))
     #convert back to letters
     return alpha.decode(msg)
@@ -93,6 +95,10 @@ def generate_keys():
             d = i
             break
     return (e, n), (d, n)
+
+
+
+
 
 #test generate_keys function
 def test_generate_keys():
