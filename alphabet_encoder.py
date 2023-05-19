@@ -18,18 +18,6 @@ def alphabet_decoder(msg):
         return chr(msg + 87)
     else:
         return " "
-#providing test for alphabet_encoder
-def test_alphabet_encoder():
-    assert alphabet_encoder(" ") == 36
-    assert alphabet_encoder("a") == 10
-    assert alphabet_encoder("b") == 11
-    assert alphabet_encoder("c") == 12
-    assert alphabet_encoder("z") == 35
-    assert alphabet_encoder("0") == 0
-    assert alphabet_encoder("5") == 5
-    assert alphabet_encoder("9") == 9
-    print ("Excellent!")
-# test_alphabet_encoder()
 
 # Req2: must encode an input message as a number.
 # We will use the following scheme to convert plaintext (input) messages to numbers:
@@ -51,6 +39,7 @@ def encode(msg):
     return numbers
 
 # print(encode("hi s7"))
+
 #now for function of reverse operation
 def decode(numbers):
     #convert each number into a group of 5 numbers
@@ -69,5 +58,18 @@ def decode(numbers):
                 msg.append(alphabet_decoder(digit))
     return ''.join(msg)
 
-#function to test the encode and decode functions together as an interface
-# print(decode(encode("hi s7123848484351556844")))
+#providing test for alphabet_encoder
+def test_alphabet_encoder():
+    assert alphabet_encoder(" ") == 36
+    assert alphabet_encoder("a") == 10
+    assert alphabet_encoder("b") == 11
+    assert alphabet_encoder("c") == 12
+    assert alphabet_encoder("z") == 35
+    assert alphabet_encoder("0") == 0
+    assert alphabet_encoder("5") == 5
+    assert alphabet_encoder("9") == 9
+    print ("Excellent!")
+# test_alphabet_encoder()
+# print(decode(encode("hi do7a s712384,,,ktatis6844")))
+# print(decode(encode("hi do7a")))
+# print(encode("hi s712384,,,8484351556844"))
